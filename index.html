@@ -14,30 +14,30 @@
 </h1>
 <body>
   <div id = "wrapper">
-    <button type="button" class = "addBtn" onclick = "displayForm()">+ New book</button>
-  </div>
-  <br>
-  <div id = "wrapper">
-    <form id = "book_form" onsubmit="return false" style = "display: block"> 
+    <button type="button" class = "newBook" onclick = "displayForm()">+ New book</button>
+    <form id = "book_form" onsubmit="return false" style = "display: none"> 
       <input type="text" name="title" id = "title_id" placeholder="Book title">
       <br>
       <input type="text" name="author" id = "author_id" placeholder="Author">
-      <br>
-      <label class = "checkContainer">Finished reading
+      <label class = "checkContainer">Finished
         <input type="checkbox" class = "checkBox" name="read" id = "read_id">
         <span class="checkmark"></span>
       </label>
-      <input type="submit" value="Add to library!" class = "addBtn submit" onclick = "addBookToLibrary()">
+      <input type="submit" value="Add to library!" class = "submitBtn" onclick = "addBookToLibrary()">
     </form>
   </div>
+  <div id = "doneContainer">
+    <button type="button" class = "doneBtn" onclick = "hideForm()" style="display: none">Done</button>
+  </div>
+  <br>
   <div>
   <table id = "book_list">
     <tr>
       <th width = "2%" id = "order">#</th>
-      <th width = "55%">Title</th>
-      <th width = "25%">Author</th>
-      <th width = "11%">Status</th>
-      <th width = "7%" class = "deleteBk" ></th>
+      <th width = "48%">Title</th>
+      <th width = "24%">Author</th>
+      <th width = "100%">Status</th>
+      <th width = "15%" class = "deleteBk" ></th>
     </tr>
   </table>
   </div>

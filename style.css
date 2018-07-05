@@ -3,12 +3,13 @@ html * {
 }
 
 #wrapper {
+    width: 75%;
+    margin: 0 auto;
     display: flex;
-    align-items: center;
     justify-content: center;
   }
 
-.addBtn {
+.newBook {
     background-color:  rgb(59, 160, 255);
     border: none;
     border-radius: 10px;
@@ -21,17 +22,27 @@ html * {
     transition-duration: 0.4s;
 }
 
-.addBtn:hover {
+.newBook:hover {
 background-color: rgb(0, 132, 255);
 }
 
-.submit {
+.submitBtn {
+    background-color: rgb(0, 194, 48);
+    color: white;
+    border: none;
+    border-radius: 10px;
     padding: 10px 25px;
+    font-size: 14px;
 }
 
 input[type=text] {
-    padding: 12px;
+    padding: 6px;
     width: 250px;
+    font-size: 20px;
+}
+
+#title_id {
+    width: 100%;
 }
 
 .checkBox{
@@ -44,6 +55,7 @@ input[type=text] {
     cursor: pointer;
     padding: 10px 30px;
     user-select: none;
+    margin-left: 10px;
 }
 
 .checkmark {
@@ -77,6 +89,22 @@ input[type=text] {
     left: 51%;
     transform: translate(-50%, -50%) rotate(-45deg);
 }
+
+#doneContainer {
+    display:flex;
+    justify-content: center;
+    padding:10px;
+}
+
+.doneBtn {
+    background-color: rgb(183, 0, 255);
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 10px;
+    font-size: 14px;
+}
+
 
 
 table {

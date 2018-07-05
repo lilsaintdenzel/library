@@ -18,7 +18,11 @@ function addBookToLibrary() {
   didRead = document.getElementById('read_id').checked
   
   //Add to library if not blank
-  if (bookTitle != "" && authorName != "") {
+  if (bookTitle == "") {
+    alert('Please add a title')
+  } else if (authorName == "") {
+    alert('Please type in the author\'s name')
+  } else {
   newBook = new Book(bookTitle, authorName, didRead)
   myLibrary.push(newBook)
   render(newBook)
@@ -27,6 +31,7 @@ function addBookToLibrary() {
   document.getElementById('title_id').value = ""
   document.getElementById('author_id').value = ""
   document.getElementById('read_id').checked = false
+
   }
 }
 
@@ -85,7 +90,20 @@ Book.prototype.toggleStatus = function() {
 
 function displayForm() {
   let form = document.getElementById('book_form');
-  (form.style.display ==='none') ? (form.style.display = 'block') : (form.style.display = 'none')
+  form.style.display = 'block'
+  let newBookBtn = document.querySelector('.newBook')
+  newBookBtn.style.display = 'none'
+  let doneBtn = document.querySelector('.doneBtn')
+  doneBtn.style.display = 'block'
+}
+
+function hideForm() {
+  let form = document.getElementById('book_form');
+  form.style.display = 'none'
+  let doneBtn = document.querySelector('.doneBtn')
+  doneBtn.style.display = 'none'
+  let newBookBtn = document.querySelector('.newBook')
+  newBookBtn.style.display = 'block'
 }
 
 deleteBook = function(e) {
