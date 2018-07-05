@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Library</title>
+  <meta name="description" content="Library">
+  <meta name="author" content="Sampson">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:100,400" rel="stylesheet">
+</head>
+<h1>
+  Library
+</h1>
+<body>
+  <div id = "wrapper">
+    <button type="button" class = "addBtn" onclick = "displayForm()">+ Add new book</button>
+  </div>
+  <br>
+  <div id = "wrapper">
+    <form id = "book_form" onsubmit="return false" style = "display: block"> 
+      <input type="text" name="title" id = "title_id" placeholder="Book title">
+      <br>
+      <input type="text" name="author" id = "author_id" placeholder="Author">
+      <br>
+      <label class = "checkContainer">Finished reading
+        <input type="checkbox" class = "checkBox" name="read" id = "read_id">
+        <span class="checkmark"></span>
+      </label>
+      <input type="submit" value="Add to library!" class = "addBtn submit" onclick = "addBookToLibrary()">
+    </form>
+  </div>
+  <div>
+  <table id = "book_list">
+    <tr>
+      <th id = "order">#</th>
+      <th>Title</th>
+      <th>Author</th>
+      <th>Read</th>
+      <th class = "deleteBk" ></th>
+    </tr>
+  </table>
+  </div>
+  <script src="lib.js"></script>
+</body>
+</html>

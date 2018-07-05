@@ -1,0 +1,106 @@
+html * {
+    font-family: 'Raleway', sans-serif;
+}
+
+#wrapper {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+.addBtn {
+    background-color:  rgb(59, 160, 255);
+    border: none;
+    border-radius: 10px;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: block;
+    font-size: 16px;
+    transition-duration: 0.4s;
+}
+
+.addBtn:hover {
+background-color: rgb(0, 132, 255);
+}
+
+.submit {
+    padding: 10px 25px;
+}
+
+input[type=text] {
+    padding: 12px;
+    width: 250px;
+}
+
+.checkBox{
+    display: none;
+}
+
+.checkContainer {
+    display: inline-block;
+    position: relative; 
+    cursor: pointer;
+    padding: 10px 30px;
+    user-select: none;
+}
+
+.checkmark {
+    display: inline-block;
+    width: 25px;
+    height: 25px;
+    background: #eee;
+    position: absolute;
+    left: 0;
+    top: 8px;
+    border-radius: 5px;
+}
+
+.checkContainer input:checked + .checkmark {
+    background-color:rgb(59, 160, 255);
+}
+
+.checkContainer:hover .checkmark {
+    background-color: #ccc;
+}
+
+/* Add checkmark after .checkContainer element in HTML, checkmark is truncated square */
+.checkContainer input:checked + .checkmark:after {
+    content: "";
+    position: absolute;
+    height: 6px;
+    width: 13px;
+    border-left: 4px solid white;
+    border-bottom: 4px solid white;
+    top: 45%;
+    left: 51%;
+    transform: translate(-50%, -50%) rotate(-45deg);
+}
+
+
+table {
+    width: 75%;
+    margin-left:auto; 
+    margin-right:auto;
+}
+
+th, td {
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+
+.deleteBk {
+    display:none;
+}
+
+.deleteBtn {
+    font-size: 15px;
+    font-weight: bold;
+    color: red;
+    position: relative;
+    border:none;
+    padding: 10px;
+}
+
+
