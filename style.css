@@ -90,17 +90,35 @@ th, td {
     border-bottom: 1px solid #ddd;
 }
 
+
 .deleteBk {
-    display:none;
+    border-bottom: 0px;
+}
+
+.statusBtn {
+    display: inline-block;
+    border:none;
+    font-size: 16px;
+}
+
+.statusBtn:hover {
+    color: grey;
+}
+
+.deleteBtnContainer {
+    border-bottom: 0px;
 }
 
 .deleteBtn {
     font-size: 15px;
     font-weight: bold;
-    color: red;
+    color: rgb(252, 130, 130);
     position: relative;
     border:none;
-    padding: 10px;
+}
+
+.deleteBtn:hover {
+    color:rgb(255, 0, 0)
 }
 
 

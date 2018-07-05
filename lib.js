@@ -1,14 +1,14 @@
 let myLibrary = []
 let bookTitle, authorName, didRead
 
-function Book(title,author,read) {
+function Book(title,author,status) {
     this.title = title
-    this.author = author;
-    (read === true) ? (this.read ="Yes") : (this.read = "No")
+    this.author = author
+    ;(status === true) ? (this.status ="Finished") : (this.status = "Reading")
 }
 
 Book.prototype.info = function() {
-  return `${this.title} by ${this.author}. Read: ${this.read}`
+  return `${this.title} by ${this.author}. Read: ${this.status}`
 }
 
 function addBookToLibrary() {
@@ -30,32 +30,57 @@ function addBookToLibrary() {
   }
 }
 
+
+
 let bookList = document.querySelector('#book_list')
 //Adds a book to the end of an ordered list
-function render(aBook) {
+function render(newBook) {
   let bookInfo = document.createElement('tr')
-  bookInfo.setAttribute('data-index',`${myLibrary.indexOf(aBook)}`)
+  bookInfo.setAttribute('data-index',`${myLibrary.indexOf(newBook)}`)
+
   let numField = document.createElement('td')
+  numField.textContent = myLibrary.indexOf(newBook) + 1
+
   let titleField = document.createElement('td')
+  titleField.textContent = newBook.title
+
   let authorField = document.createElement('td')
-  let readField = document.createElement('td')
+  authorField.textContent = newBook.author
+
+  let statusBtnContainer = document.createElement('td')
+
+  let deleteBtnContainer = document.createElement('td')
+  deleteBtnContainer.classList.add('deleteBtnContainer')
+
+  let statusBtn = document.createElement('button')
+  statusBtn.textContent = newBook.status
+  statusBtn.classList.add('statusBtn')
+  statusBtn.addEventListener('click', changeStatus)
+
   let deleteBtn = document.createElement('button')
   deleteBtn.classList.add('deleteBtn')
   deleteBtn.textContent = '✕'
   deleteBtn.addEventListener('click', deleteBook)
-  numField.textContent = myLibrary.indexOf(aBook) + 1
-  titleField.textContent = aBook.title
-  authorField.textContent = aBook.author
-  readField.textContent = aBook.read
+
   bookInfo.appendChild(numField)
   bookInfo.appendChild(titleField)
   bookInfo.appendChild(authorField)
-  bookInfo.appendChild(readField)
-  bookInfo.appendChild(deleteBtn)
+  statusBtnContainer.appendChild(statusBtn)
+  deleteBtnContainer.appendChild(deleteBtn)
+  bookInfo.appendChild(statusBtnContainer)
+  bookInfo.appendChild(deleteBtnContainer)
   bookList.appendChild(bookInfo)
+}
 
+changeStatus = function(e) {
+  parentDataIndex = e.target.parentElement.parentElement.dataset.index
+  selectBook = document.querySelector(`[data-index='${parentDataIndex}']`)
+  ;(e.target.textContent === "Reading") ? (e.target.textContent = "Finished") : (e.target.textContent = "Reading") 
+  myLibrary[parentDataIndex].toggleStatus()
+}
 
-
+Book.prototype.toggleStatus = function() {
+  ;(this.status === "Reading") ? (this.status ="Finished") : (this.status = "Reading");
 }
 
 function displayForm() {
@@ -63,8 +88,9 @@ function displayForm() {
   (form.style.display ==='none') ? (form.style.display = 'block') : (form.style.display = 'none')
 }
 
-deleteBook = function (e) {
-  parentDataIndex = e.target.parentElement.dataset.index
+deleteBook = function(e) {
+  parentDataIndex = e.target.parentElement.parentElement.dataset.index
   selectBook = document.querySelector(`[data-index='${parentDataIndex}']`)
   bookList.removeChild(selectBook)
+  myLibrary.splice(parentDataIndex,1)
 }
