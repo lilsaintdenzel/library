@@ -121,12 +121,14 @@ th, td {
 
 .deleteBk {
     border-bottom: 0px;
+    background-color: transparent;
 }
 
 .statusBtn {
     display: inline-block;
     border:none;
     font-size: 16px;
+    background-color: transparent;
 }
 
 .statusBtn:hover {
