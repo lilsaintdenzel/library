@@ -121,7 +121,6 @@ th, td {
 
 .deleteBk {
     border-bottom: 0px;
-    background-color: transparent;
 }
 
 .statusBtn {
@@ -145,6 +144,7 @@ th, td {
     color: rgb(252, 130, 130);
     position: relative;
     border:none;
+    background-color: transparent;
 }
 
 .deleteBtn:hover {
